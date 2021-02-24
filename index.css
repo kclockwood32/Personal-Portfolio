@@ -220,6 +220,7 @@
     font-size: 2rem;
     background: var(--main-gray);
     transition: background 0.3s ease-out;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   }
   
   .btn-show-all:hover {
