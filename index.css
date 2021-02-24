@@ -237,8 +237,6 @@
     transition: transform 0.3s ease-out;
   }
   
-  /* Contact section */
-  
   .contact-section {
     display: flex;
     flex-direction: column;
