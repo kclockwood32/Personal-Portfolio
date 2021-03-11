@@ -298,7 +298,15 @@
   footer > p {
     margin: 2rem;
   }
+
+  #vertical-margin {
+    margin: 7rem 0 0 0;
+  }
   
+  #vertical-margin p {
+    font-size: larger;
+  }
+
   footer i {
     vertical-align: middle;
   }
