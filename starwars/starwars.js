@@ -1,7 +1,17 @@
-import {vehicles} from '../data'
+import {films} from '../data/films.js'
 
-let item0ne = document.querySelector('#item1')
+/* let item0ne = document.querySelector('#item1')
 
-item0ne.textContent = 'a new hope'
+item0ne.textContent = films[0].title
 
-console.log(vehicles[0].name)
+console.log(films[0].title)
+console.log(films.length) */
+
+let titleList = document.querySelector('.titleList')
+
+for (var i = 0; i < films.length; i++) {
+    let title = films[i].title
+    let newItem = document.createElement('li')
+    newItem.textContent = title
+    titleList.appendChild(newItem)
+}
