@@ -9,9 +9,15 @@ console.log(films.length) */
 
 let titleList = document.querySelector('.titleList')
 
-for (var i = 0; i < films.length; i++) {
+for (let i = 0; i < films.length; i++) {
     let title = films[i].title
     let newItem = document.createElement('li')
     newItem.textContent = title
     titleList.appendChild(newItem)
+    getLastNumber(films[i].url)
+}
+
+function getLastNumber(url) {
+    let end = url.length - 2
+    console.log(end)
 }
