@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.movieList {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+figure {
+    margin: 1em;
+}
+
+figcaption {
+    text-align: center;
+    background-color: grey;
+    color: white;
+}
