@@ -1,11 +1,5 @@
-import {films} from '../data/films.js'
-
-/* let item0ne = document.querySelector('#item1')
-
-item0ne.textContent = films[0].title
-
-console.log(films[0].title)
-console.log(films.length) */
+import { films } from '../data/films.js'
+import { getLastNumber } from '../utils/index.js'
 
 let movieList = document.querySelector('.movieList')
 
@@ -20,9 +14,4 @@ for (let i = 0; i < films.length; i++) {
     figure.appendChild(newImage)
     figure.appendChild(figCaption)
     movieList.appendChild(figure)
-}
-
-function getLastNumber(url) {
-    let end = url[url.length - 2]
-    return parseInt (end, 10)
 }
