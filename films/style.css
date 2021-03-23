@@ -4,8 +4,8 @@
 }
 
 body {
-    background: rgb(4,4,4);
-    background: linear-gradient(0deg, rgba(4,4,4,1) 0%, rgba(30,34,38,1) 100%);
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(25,27,29,1) 100%);
 }
 
 .movieList {
@@ -45,4 +45,9 @@ p {
     font-family: 'Spinnaker', sans-serif;
     font-size: x-large;
     color: rgb(241, 241, 241);
+}
+
+figure, h1 {
+    z-index: 1;
+    position: relative;
 }
