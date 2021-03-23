@@ -3,13 +3,81 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: rgb(21, 22, 24);
+}
+
+header {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 3em 0;
+}
+
+button {
+    /* text-align: center;
+    font-family: 'Michroma', sans-serif;
+    font-size: 170%;
+    color: #efbf03;
+    background-color: black;
+    padding: .7em; */
+
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 24px;
+    font-family: 'Michroma', sans-serif;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #efbf03;
+    background-color: #22242b;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px rgb(15, 15, 15);
+}
+
+button:hover {
+    background: #efbf03;
+    color:rgb(0, 0, 0);
+}
+
+button:active {
+    background-color: #efbf03;
+    box-shadow: 0 5px rgb(0, 0, 0);
+    transform: translateY(4px);
+}
+
 #main {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 0 140px;
 }
 
 figure > img {
-    height: 200px;
-    margin: 1em;
-    box-shadow: 10px 5px 5px red;
+    height: 300px;
+    margin: 1.3em;
+    box-shadow: 0px 0px 20px rgb(0, 255, 0);
+    border-radius: 45px;
+}
+
+h1 {
+    text-align: center;
+    text-shadow: 2px 2px rgb(7, 7, 7);
+    font-family: 'Michroma', sans-serif;
+    font-size: 400%;
+    color: #efbf03;
+}
+
+figcaption, p {
+    text-align: center;
+    font-family: 'Spinnaker', sans-serif;
+    font-size: large;
+    color: rgb(241, 241, 241);
+    margin: 0 0 1.5em 0;
+}
+
+p {
+    margin: 1.5em 0;
+    font-size: 150%;
 }

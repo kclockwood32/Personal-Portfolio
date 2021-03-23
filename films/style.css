@@ -46,8 +46,3 @@ p {
     font-size: x-large;
     color: rgb(241, 241, 241);
 }
-
-figure, h1 {
-    z-index: 1;
-    position: relative;
-}
