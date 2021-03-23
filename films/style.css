@@ -3,17 +3,46 @@
     box-sizing: border-box;
 }
 
+body {
+    background: rgb(4,4,4);
+    background: linear-gradient(0deg, rgba(4,4,4,1) 0%, rgba(30,34,38,1) 100%);
+}
+
 .movieList {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 figure {
-    margin: 1em;
+    margin: 1.5em;
+}
+
+figure > img {
+    box-shadow: 3px 3px rgb(248, 248, 248);
+    border-radius: 30px;
 }
 
 figcaption {
+    font-family: 'Spinnaker', sans-serif;
     text-align: center;
-    background-color: grey;
-    color: white;
+    color: rgb(241, 241, 241);
+    margin: 1em 0 0 0;
+    font-size: 110%;
+}
+
+h1 {
+    text-align: center;
+    text-shadow: 2px 2px rgb(7, 7, 7);
+    font-family: 'Michroma', sans-serif;
+    font-size: 400%;
+    color: #efbf03;
+}
+
+p {
+    margin: 1em;
+    text-align: center;
+    font-family: 'Spinnaker', sans-serif;
+    font-size: x-large;
+    color: rgb(241, 241, 241);
 }

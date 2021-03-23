@@ -5,7 +5,12 @@
 
 main {
     display: flex;
-    flex-wrap: wrap;
+    height: 100vh;
+}
+
+img, nav {
+    z-index: 1;
+    position: relative;
 }
 
 a {
