@@ -14,7 +14,7 @@ h1 {
     font-family: 'Michroma', sans-serif;
     font-size: 400%;
     color: #efbf03;
-    margin: .5em 0 1em 0;
+    margin: 1.2em 0 1em 0;
 }
 
 p {
@@ -50,6 +50,7 @@ li {
 
 .navbar {
     display: flex;
+    overflow: hidden;
     border-top: solid 1px #000;
     border-bottom: solid 1px #000;
     flex-direction: row;
@@ -58,6 +59,10 @@ li {
     background-color: rgb(26, 34, 41);
     font-size: x-large;
     font-family: 'Michroma', sans-serif;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 2;
 }
 
 .logo > img {
