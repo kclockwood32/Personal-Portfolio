@@ -883,7 +883,7 @@ export const people = [
     {
         "name": "Rugor Nass",
         "height": "206",
-        "mass": "unknown",
+        "mass": "heavy",
         "hair_color": "none",
         "skin_color": "green",
         "eye_color": "orange",
@@ -927,7 +927,7 @@ export const people = [
     {
         "name": "Watto",
         "height": "137",
-        "mass": "unknown",
+        "mass": "light",
         "hair_color": "black",
         "skin_color": "blue, grey",
         "eye_color": "yellow",
@@ -1041,7 +1041,7 @@ export const people = [
     {
         "name": "Bib Fortuna",
         "height": "180",
-        "mass": "unknown",
+        "mass": "heavy",
         "hair_color": "none",
         "skin_color": "pale",
         "eye_color": "pink",
@@ -1109,7 +1109,7 @@ export const people = [
     {
         "name": "Gasgano",
         "height": "122",
-        "mass": "unknown",
+        "mass": "light",
         "hair_color": "none",
         "skin_color": "white, blue",
         "eye_color": "black",
@@ -1271,7 +1271,7 @@ export const people = [
     {
         "name": "Saesee Tiin",
         "height": "188",
-        "mass": "unknown",
+        "mass": "heavy",
         "hair_color": "none",
         "skin_color": "pale",
         "eye_color": "orange",
@@ -1294,7 +1294,7 @@ export const people = [
     {
         "name": "Yarael Poof",
         "height": "264",
-        "mass": "unknown",
+        "mass": "heavy",
         "hair_color": "none",
         "skin_color": "white",
         "eye_color": "yellow",
@@ -1342,7 +1342,7 @@ export const people = [
     {
         "name": "Mas Amedda",
         "height": "196",
-        "mass": "unknown",
+        "mass": "heavy",
         "hair_color": "none",
         "skin_color": "blue",
         "eye_color": "blue",
@@ -1411,7 +1411,7 @@ export const people = [
     {
         "name": "Cliegg Lars",
         "height": "183",
-        "mass": "unknown",
+        "mass": "heavy",
         "hair_color": "brown",
         "skin_color": "fair",
         "eye_color": "blue",
@@ -1770,7 +1770,7 @@ export const people = [
     {
         "name": "San Hill",
         "height": "191",
-        "mass": "unknown",
+        "mass": "heavy",
         "hair_color": "none",
         "skin_color": "grey",
         "eye_color": "gold",
@@ -2019,7 +2019,7 @@ export const people = [
     {
         "name": "Captain Phasma",
         "height": "unknown",
-        "mass": "unknown",
+        "mass": "heavy",
         "hair_color": "unknown",
         "skin_color": "unknown",
         "eye_color": "unknown",

@@ -22,6 +22,16 @@ otherButton.textContent = 'Other Characters'
 otherButton.addEventListener('click', () => populateDOM(otherCharacters))
 mainHeader.appendChild(otherButton)
 
+const heavyButton = document.createElement('button')
+heavyButton.textContent = 'Heavy Characters'
+heavyButton.addEventListener('click', () => populateDOM(heavyCharacters))
+mainHeader.appendChild(heavyButton)
+
+const lightButton = document.createElement('button')
+lightButton.textContent = 'Light Characters'
+lightButton.addEventListener('click', () => populateDOM(lightCharacters))
+mainHeader.appendChild(lightButton)
+
 
 
 const maleCharacters = people.filter(person => person.gender === 'male')
@@ -31,6 +41,8 @@ const otherCharacters = people.filter(person => {
         return person
     }
 })
+const heavyCharacters = people.filter(person => person.mass > 100 || person.mass === 'heavy')
+const lightCharacters = people.filter(person => person.mass < 75 || person.mass === 'light')
 
 console.log(otherCharacters)
 

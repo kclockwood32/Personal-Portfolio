@@ -4,13 +4,15 @@
 }
 
 body {
-    background-color: rgb(21, 22, 24);
+    background: rgb(0,0,0);
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(25,27,29,1) 100%);
 }
 
 header {
     display: flex;
     justify-content: space-evenly;
     margin: 3em 0;
+    flex-wrap: wrap;
 }
 
 button {
@@ -97,8 +99,9 @@ p {
 }
 
 .logo > img {
-    width: 10%;
+    width: 7%;
     height: auto;
+    margin: 0 0 0 .6em
 }
 
 .nav-item a {
@@ -106,6 +109,7 @@ p {
     padding: 10px 25px;
     text-decoration: none;
     color: white;
+    margin: .4em 0;
 }
 
 .nav-links #active a {
