@@ -12,3 +12,8 @@ async function getAPIData(url) {
     console.log(error)
     }
 }
+
+var card = document.querySelector('.card');
+card.addEventListener( 'click', function() {
+  card.classList.toggle('is-flipped');
+});
