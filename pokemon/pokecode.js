@@ -19,7 +19,7 @@ function loadPage() {
   getAPIData(`https://pokeapi.co/api/v2/pokemon?limit=26`).then(
     (data) => {
         for (const singlePokemon of data.results) {
-        console.log(data)
+        populatePokeCard(singlePokemon)
         }
     }
   )
@@ -30,10 +30,13 @@ function populatePokeCard(singlePokemon) {
   pokeScene.className = 'scene'
   let pokeCard = document.createElement('div')
   pokeCard.className = 'card'
+  pokeCard.addEventListener('click', () => {
+    pokeCard.classList.toggle('is-flipped')
+  })
   pokeCard.appendChild(populateCardFront(singlePokemon))
+  pokeCard.appendChild(populateCardBack(singlePokemon))
   pokeScene.appendChild(pokeCard)
   pokeGrid.appendChild(pokeScene)
-  console.log(singlePokemon)
 }
 
 function populateCardFront(pokemon) {
@@ -41,13 +44,18 @@ function populateCardFront(pokemon) {
   pokeFront.className = 'card__face card__face--front'
   let frontLabel = document.createElement('p')
   frontLabel.textContent = pokemon.name
-  
+  let frontImage = document.createElement('img')
+  frontImage.src = `images/001.png`
+  pokeFront.appendChild(frontImage)
   pokeFront.appendChild(frontLabel)
   return pokeFront
-
 }
 
-// var card = document.querySelector('.card');
-// card.addEventListener( 'click', function() {
-//   card.classList.toggle('is-flipped');
-// });
+function populateCardBack(pokemon) {
+  let pokeBack = document.createElement('div')
+  pokeBack.className = 'card__face card__face--back'
+  let backLabel = document.createElement('p')
+  backLabel.textContent = 'back of card'
+  pokeBack.appendChild(backLabel)
+  return pokeBack
+}
