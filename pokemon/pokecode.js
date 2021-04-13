@@ -12,6 +12,7 @@ async function getAPIData(url) {
         return data
     } catch (error) {
       console.log(error)
+      alert('No result found.')
     }
 }
 
@@ -47,7 +48,7 @@ function populateCardFront(pokemon) {
   let frontLabel = document.createElement('p')
   frontLabel.textContent = pokemon.name
   let frontImage = document.createElement('img')
-  frontImage.src = `images/${getImageFileName(pokemon)}.png`
+  frontImage.src = getImageFileName(pokemon)
   pokeFront.appendChild(frontImage)
   pokeFront.appendChild(frontLabel)
   return pokeFront
@@ -63,9 +64,10 @@ function populateCardBack(pokemon) {
 }
 
 function getImageFileName(pokemon) {
-  if (pokemon.id < 10) {
-    return `00${pokemon.id}`
-  } else if (pokemon.id > 9 && pokemon.id < 100) {
-    return `0${pokemon.id}`
-  }
+  let pokeId
+  if (pokemon.id < 10) pokeId = `00${pokemon.id}`
+  if (pokemon.id > 9 && pokemon.id < 100) pokeId = `0${pokemon.id}`
+  if (pokemon.id > 99 && pokemon.id < 810) pokeId = pokemon.id
+
+  return `https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/${pokeId}.png`
 }
