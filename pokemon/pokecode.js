@@ -17,9 +17,11 @@ async function getAPIData(url) {
 
 function loadPage() {
   getAPIData(`https://pokeapi.co/api/v2/pokemon?limit=26`).then(
-    (data) => {
+    async (data) => {
         for (const singlePokemon of data.results) {
-        populatePokeCard(singlePokemon)
+          await getAPIData(singlePokemon.url).then(
+            (pokeData) => populatePokeCard(pokeData)
+          )
         }
     }
   )
@@ -45,7 +47,7 @@ function populateCardFront(pokemon) {
   let frontLabel = document.createElement('p')
   frontLabel.textContent = pokemon.name
   let frontImage = document.createElement('img')
-  frontImage.src = `images/001.png`
+  frontImage.src = `images/${getImageFileName(pokemon)}.png`
   pokeFront.appendChild(frontImage)
   pokeFront.appendChild(frontLabel)
   return pokeFront
@@ -55,7 +57,15 @@ function populateCardBack(pokemon) {
   let pokeBack = document.createElement('div')
   pokeBack.className = 'card__face card__face--back'
   let backLabel = document.createElement('p')
-  backLabel.textContent = 'back of card'
+  backLabel.textContent = `Moves: ${pokemon.moves.length}`
   pokeBack.appendChild(backLabel)
   return pokeBack
+}
+
+function getImageFileName(pokemon) {
+  if (pokemon.id < 10) {
+    return `00${pokemon.id}`
+  } else if (pokemon.id > 9 && pokemon.id < 100) {
+    return `0${pokemon.id}`
+  }
 }
