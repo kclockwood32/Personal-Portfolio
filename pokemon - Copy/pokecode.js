@@ -5,12 +5,6 @@ loadButton.addEventListener('click', () => {
     loadPage()
 })
 
-function getRandomInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
-}
-
 async function getAPIData(url) {
     try {
         const response = await fetch(url)
@@ -23,7 +17,7 @@ async function getAPIData(url) {
 }
 
 function loadPage() {
-  getAPIData(`https://pokeapi.co/api/v2/pokemon?limit=6`).then(
+  getAPIData(`https://pokeapi.co/api/v2/pokemon?limit=26`).then(
     async (data) => {
         for (const singlePokemon of data.results) {
           await getAPIData(singlePokemon.url).then(
@@ -42,7 +36,6 @@ function populatePokeCard(singlePokemon) {
   pokeCard.addEventListener('click', () => {
     pokeCard.classList.toggle('is-flipped')
   })
-  pokeCard.classList.toggle('is-flipped')
   pokeCard.appendChild(populateCardFront(singlePokemon))
   pokeCard.appendChild(populateCardBack(singlePokemon))
   pokeScene.appendChild(pokeCard)
