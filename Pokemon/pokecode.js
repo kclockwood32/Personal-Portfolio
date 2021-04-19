@@ -16,10 +16,15 @@ function getRandomInt(min, max) {
 }
 
 teamButton.addEventListener('click', () => {
-  let pokeId = getRandomInt(1, 810)
-  getAPIData(`https://pokeapi.co/api/v2/pokemon/${pokeId}`).then(
-    data => populatePokeCard(data)
-  ).catch(error => console.log(error))
+  for (let i = 0; i < 6; i++) {
+    let pokeId = getRandomInt(1, 811)
+    getAPIData(`https://pokeapi.co/api/v2/pokemon/${pokeId}`).then(
+      data => populatePokeCard(data)
+    ).catch(error => console.log(error))
+  }
+  let teamTotal = document.createElement('p')
+  teamTotal.textContent = 'yess'
+
 })
 
 class Pokemon {
@@ -70,7 +75,10 @@ function populatePokeCard(singlePokemon) {
   pokeGrid.appendChild(pokeScene)
 }
 
-let fightArray = []
+let atkArray = []
+let defArray = []
+let totalATK = []
+let totalDEF = []
 
 function populateCardFront(pokemon) {
   let pokeFront = document.createElement('div')
@@ -79,16 +87,18 @@ function populateCardFront(pokemon) {
   frontLabel.textContent = pokemon.name
   let frontImage = document.createElement('img')
   frontImage.src = getImageFileName(pokemon)
-  let frontDEF = document.createElement('p')
-  frontDEF.textContent = `DEF: ${pokemon.stats[0].base_stat}`
   let frontATK = document.createElement('p')
   frontATK.textContent = `ATK: ${pokemon.stats[1].base_stat}`
-  fightArray.push(pokemon.stats[1].base_stat)
+  atkArray.push(pokemon.stats[1].base_stat)
+  let frontDEF = document.createElement('p')
+  frontDEF.textContent = `DEF: ${pokemon.stats[2].base_stat}`
+  defArray.push(pokemon.stats[2].base_stat)
   pokeFront.appendChild(frontImage)
   pokeFront.appendChild(frontLabel)
   pokeFront.appendChild(frontATK)
   pokeFront.appendChild(frontDEF)
-  fightTotal(fightArray)
+  atkTotal(atkArray)
+  defTotal(defArray)
   return pokeFront
 }
 
@@ -110,15 +120,25 @@ function getImageFileName(pokemon) {
   return `https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/${pokeId}.png`
 }
 
-function fightTotal(array) {
-  if (array.length > 5)
-  console.log(array)
+const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+function atkTotal(array) {
+  if (array.length > 5) {
+    console.log(array.reduce(reducer))
+    atkArray = []
+  }
+}
+
+function defTotal(array) {
+  if (array.length > 5) {
+    console.log(array.reduce(reducer))
+    defArray = []
+  }
 }
 
 //Items I need help with:
 //  Detect array length, then sum total of array and output that onto screen.
-//  Detect number of cards on-screen and disable button once 6 cards have been created OR
-//  Detect once six cards are created and output ATK and DEF totals, then allow 6 more cards and repeat.
-
-//  After two teams are created, take Team 1 total ATK and Team 2 total ATK. Subtract Team 1 ATK from Team 2 DEF, and vice versa.
+//  Click button and generate 6 cards, then sum output ATK and DEF total at bottom.
+//  Click button and generate 6 more cards, sum output ATK and DEF at bottom.
+//  Build function to subtract Team 1 ATK from Team 2 DEF, and vice versa.
 //  Team with highest end number wins.
