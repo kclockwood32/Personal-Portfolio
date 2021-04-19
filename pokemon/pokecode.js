@@ -22,7 +22,7 @@ loadButton.addEventListener('click', () => {
 })
 
 fetchButton.addEventListener('click', () => {
-  let pokeId = prompt("Pokemon ID or Name").toLowerCase()
+  let pokeId = getRandomInt(1, 810)
   getAPIData(`https://pokeapi.co/api/v2/pokemon/${pokeId}`).then(
     data => populatePokeCard(data)
   ).catch(error => console.log(error))
@@ -93,14 +93,21 @@ function populatePokeCard(singlePokemon) {
 function populateCardFront(pokemon) {
   let pokeFront = document.createElement('div')
   pokeFront.className = 'card__face card__face--front'
-  let frontLabel = document.createElement('p')
+  let frontLabel = document.createElement('h2')
   frontLabel.textContent = pokemon.name
   let frontImage = document.createElement('img')
   frontImage.src = getImageFileName(pokemon)
+  let frontHP = document.createElement('p')
+  frontHP.textContent = `DEF: ${pokemon.stats[0].base_stat}`
+  let frontATK = document.createElement('p')
+  frontATK.textContent = `ATK: ${pokemon.stats[1].base_stat}`
   pokeFront.appendChild(frontImage)
   pokeFront.appendChild(frontLabel)
+  pokeFront.appendChild(frontHP)
+  pokeFront.appendChild(frontATK)
   return pokeFront
 }
+
 
 function populateCardBack(pokemon) {
   let pokeBack = document.createElement('div')
