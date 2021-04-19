@@ -7,9 +7,7 @@
 // Perhaps use inputs from the user to generate a fun name, like their first and last name.
 
 const pokeGrid = document.querySelector('.pokeGrid')
-const loadButton = document.querySelector('.loadPokemon')
-const fetchButton = document.querySelector('.fetchPokemonByID')
-const newButton = document.querySelector('.newPokemon')
+const teamButton = document.querySelector('.createTeam')
 
 function getRandomInt(min, max) {
   min = Math.ceil(min);
@@ -17,11 +15,7 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
 }
 
-loadButton.addEventListener('click', () => {
-    loadPage()
-})
-
-fetchButton.addEventListener('click', () => {
+teamButton.addEventListener('click', () => {
   let pokeId = getRandomInt(1, 810)
   getAPIData(`https://pokeapi.co/api/v2/pokemon/${pokeId}`).then(
     data => populatePokeCard(data)
@@ -37,20 +31,6 @@ class Pokemon {
     this.moves = moves;
   }
 }
-
-newButton.addEventListener('click', () => {
-  let pokeName = prompt("What is the name of your new Pokemon?")
-  let pokeHeight = prompt("Pokemon height?")
-  let pokeWeight = prompt("Pokemon Weight?")
-  let newPokemon = new Pokemon(
-    pokeName, 
-    pokeHeight, 
-    pokeWeight,
-    ['eat', 'sleep'],
-    ['study', 'code', 'silence']
-  )
-  populatePokeCard(newPokemon)
-})
 
 async function getAPIData(url) {
     try {
@@ -90,6 +70,8 @@ function populatePokeCard(singlePokemon) {
   pokeGrid.appendChild(pokeScene)
 }
 
+let fightArray = []
+
 function populateCardFront(pokemon) {
   let pokeFront = document.createElement('div')
   pokeFront.className = 'card__face card__face--front'
@@ -101,20 +83,18 @@ function populateCardFront(pokemon) {
   frontHP.textContent = `DEF: ${pokemon.stats[0].base_stat}`
   let frontATK = document.createElement('p')
   frontATK.textContent = `ATK: ${pokemon.stats[1].base_stat}`
+  fightArray.push(pokemon.stats[1].base_stat)
   pokeFront.appendChild(frontImage)
   pokeFront.appendChild(frontLabel)
   pokeFront.appendChild(frontHP)
   pokeFront.appendChild(frontATK)
+  fightTotal(fightArray)
   return pokeFront
 }
-
 
 function populateCardBack(pokemon) {
   let pokeBack = document.createElement('div')
   pokeBack.className = 'card__face card__face--back'
-  let backLabel = document.createElement('p')
-  backLabel.textContent = `Moves: ${pokemon.moves.length}`
-  pokeBack.appendChild(backLabel)
   return pokeBack
 }
 
@@ -129,3 +109,13 @@ function getImageFileName(pokemon) {
 
   return `https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/${pokeId}.png`
 }
+
+function fightTotal(array) {
+  if (array.length > 5)
+  console.log(array)
+}
+
+//Items I need help with:
+//  Detect array length, then sum total of array and output that onto screen.
+//  Detect number of cards on-screen and disable button once 6 cards have been created OR
+//  Detect once six cards are created and output ATK and DEF totals, then allow 6 more cards and repeat.

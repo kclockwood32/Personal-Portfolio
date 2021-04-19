@@ -48,18 +48,42 @@
     border: solid 10px #f7c600;
     color: #f7c600;
     font-family: 'Carter One', cursive;
-    font-size: 1.6em;
     letter-spacing: 1px;
     text-shadow: 1px 1px 1px black;
 }
 
+.card__face--front > p {
+    font-size: .9em;
+}
+
+.card__face--front > h2 {
+    font-size: 1.5em;
+    margin-bottom: .2em;
+}
+
 .card__face--front > img {
     width: 160px;
-    padding-top: 4rem;
+    padding-top: .5rem;
 }
 
 .card__face--back {
     background-image: url(/pokemon/images/cardback.jpg);
     background-position: center;
     transform: rotateY(180deg);
+}
+
+button {
+    color: #f7c600;
+    background-color: #0a3470;
+    font-family: 'Carter One', cursive;
+    text-shadow: 1px 1px 1px black;
+    padding: 1em;
+    border: 1px solid black;
+    border-radius: 20px;
+    font-size: 2em;
+    margin-left: 2rem;
+}
+
+button:hover {
+    cursor: pointer;
 }

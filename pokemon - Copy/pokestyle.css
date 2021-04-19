@@ -48,14 +48,17 @@
     border: solid 10px #f7c600;
     color: #f7c600;
     font-family: 'Carter One', cursive;
-    font-size: 1.6em;
     letter-spacing: 1px;
     text-shadow: 1px 1px 1px black;
 }
 
+.card__face--front > h2 {
+    font-size: 1.8em;
+}
+
 .card__face--front > img {
     width: 160px;
-    padding-top: 4rem;
+    padding-top: .5rem;
 }
 
 .card__face--back {
