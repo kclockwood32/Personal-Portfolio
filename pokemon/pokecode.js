@@ -79,15 +79,15 @@ function populateCardFront(pokemon) {
   frontLabel.textContent = pokemon.name
   let frontImage = document.createElement('img')
   frontImage.src = getImageFileName(pokemon)
-  let frontHP = document.createElement('p')
-  frontHP.textContent = `DEF: ${pokemon.stats[0].base_stat}`
+  let frontDEF = document.createElement('p')
+  frontDEF.textContent = `DEF: ${pokemon.stats[0].base_stat}`
   let frontATK = document.createElement('p')
   frontATK.textContent = `ATK: ${pokemon.stats[1].base_stat}`
   fightArray.push(pokemon.stats[1].base_stat)
   pokeFront.appendChild(frontImage)
   pokeFront.appendChild(frontLabel)
-  pokeFront.appendChild(frontHP)
   pokeFront.appendChild(frontATK)
+  pokeFront.appendChild(frontDEF)
   fightTotal(fightArray)
   return pokeFront
 }
@@ -119,3 +119,6 @@ function fightTotal(array) {
 //  Detect array length, then sum total of array and output that onto screen.
 //  Detect number of cards on-screen and disable button once 6 cards have been created OR
 //  Detect once six cards are created and output ATK and DEF totals, then allow 6 more cards and repeat.
+
+//  After two teams are created, take Team 1 total ATK and Team 2 total ATK. Subtract Team 1 ATK from Team 2 DEF, and vice versa.
+//  Team with highest end number wins.
