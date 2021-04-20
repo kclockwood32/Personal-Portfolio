@@ -4,7 +4,13 @@
     box-sizing: border-box;
 }
 
-.pokeGrid {
+.pokeTeam1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.pokeTeam2 {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
