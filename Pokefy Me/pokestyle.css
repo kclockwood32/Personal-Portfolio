@@ -56,8 +56,15 @@
     font-size: 1.8em;
 }
 
+.button-layout {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-bottom: 2em;
+  }
+
 .card__face--front > img {
-    width: 160px;
+    width: 120px;
     padding-top: .5rem;
 }
 
@@ -66,3 +73,35 @@
     background-position: center;
     transform: rotateY(180deg);
 }
+
+button {
+    color: #f7c600;
+    background-color: #0a3470;
+    font-family: "Carter One", cursive;
+    text-shadow: 1px 1px 1px black;
+    padding: 1em;
+    border: 1px solid black;
+    border-radius: 20px;
+    font-size: 1.8em;
+    margin-left: 2rem;
+  }
+  
+  button:hover {
+    cursor: pointer;
+    background-color: #0a4faf;
+    color: #ffdc52;
+  }
+
+  h1 {
+    color: #f7c600;
+    text-shadow: 2px 2px 1px black;
+    font-size: 6em;
+    font-family: "Carter One", cursive;
+    text-align: center;
+  }
+  
+  body {
+    background: rgb(0,22,65);
+    background: linear-gradient(0deg, rgba(0,22,65,1) 0%, rgba(84,95,189,1) 100%);
+    background-size: auto;
+  }

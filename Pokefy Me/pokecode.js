@@ -1,15 +1,7 @@
-// IDEA: Two different pages; First will be the Pokemon Friend Battle page. You will click the button and it will populate a random team of 6 pokemon.
-// You will flip each card to see your team.
-// The "hp" stat and the "attack" stat from each pokemon will be pooled together into a "team hp and atk" stat. This will display at bottom of page.
-// A friend then clicks the button. They get a random team and stats at bottom. Whoever has more HP after subtracting enemy atk wins!
-
-// IDEA 2: Random Pokemon Generator. Have lists of pre-defined things that will be randomly chosen and populated together to create a new, random pokemon.
-// Perhaps use inputs from the user to generate a fun name, like their first and last name.
-
 const pokeGrid = document.querySelector('.pokeGrid')
 const loadButton = document.querySelector('.loadPokemon')
 const fetchButton = document.querySelector('.fetchPokemonByID')
-const newButton = document.querySelector('.newPokemon')
+// const newButton = document.querySelector('.newPokemon')
 
 function getRandomInt(min, max) {
   min = Math.ceil(min);
@@ -30,7 +22,7 @@ fetchButton.addEventListener('click', () => {
 
 class Pokemon {
   constructor(name, height, weight, abilities, moves) {
-    this.name = name;
+    this.name = `${name}mon`;
     this.height = height;
     this.weight = weight;
     this.abilities = abilities;
@@ -38,19 +30,19 @@ class Pokemon {
   }
 }
 
-newButton.addEventListener('click', () => {
-  let pokeName = prompt("What is the name of your new Pokemon?")
-  let pokeHeight = prompt("Pokemon height?")
-  let pokeWeight = prompt("Pokemon Weight?")
-  let newPokemon = new Pokemon(
-    pokeName, 
-    pokeHeight, 
-    pokeWeight,
-    ['eat', 'sleep'],
-    ['study', 'code', 'silence']
-  )
-  populatePokeCard(newPokemon)
-})
+// newButton.addEventListener('click', () => {
+//   let pokeName = prompt("What is the name of your new Pokemon?")
+//   let pokeHeight = prompt("Pokemon height?")
+//   let pokeWeight = prompt("Pokemon Weight?")
+//   let newPokemon = new Pokemon(
+//     pokeName, 
+//     pokeHeight, 
+//     pokeWeight,
+//     ['eat', 'sleep'],
+//     ['study', 'code', 'silence']
+//   )
+//   populatePokeCard(newPokemon)
+// })
 
 async function getAPIData(url) {
     try {
@@ -64,7 +56,7 @@ async function getAPIData(url) {
 }
 
 function loadPage() {
-  getAPIData(`https://pokeapi.co/api/v2/pokemon?limit=6`).then(
+  getAPIData(`https://pokeapi.co/api/v2/pokemon?limit=25`).then(
     async (data) => {
         for (const singlePokemon of data.results) {
           await getAPIData(singlePokemon.url).then(
@@ -101,10 +93,13 @@ function populateCardFront(pokemon) {
   frontHP.textContent = `HP: ${pokemon.stats[0].base_stat}`
   let frontATK = document.createElement('p')
   frontATK.textContent = `ATK: ${pokemon.stats[1].base_stat}`
+  let frontDEF = document.createElement('p')
+  frontDEF.textContent = `DEF: ${pokemon.stats[2].base_stat}`
   pokeFront.appendChild(frontImage)
   pokeFront.appendChild(frontLabel)
   pokeFront.appendChild(frontHP)
   pokeFront.appendChild(frontATK)
+  pokeFront.appendChild(frontDEF)
   return pokeFront
 }
 
@@ -113,9 +108,6 @@ function populateCardFront(pokemon) {
 function populateCardBack(pokemon) {
   let pokeBack = document.createElement('div')
   pokeBack.className = 'card__face card__face--back'
-  let backLabel = document.createElement('p')
-  backLabel.textContent = `Moves: ${pokemon.moves.length}`
-  pokeBack.appendChild(backLabel)
   return pokeBack
 }
 
