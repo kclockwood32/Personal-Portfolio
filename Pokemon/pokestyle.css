@@ -1,3 +1,5 @@
+
+/* Reset global margin and padding */
 * {
   margin: 0;
   padding: 0;
@@ -26,6 +28,8 @@ body {
   background-position: center;
 }
 
+
+/* Card Styling */
 .scene {
   width: 220px;
   height: 300px;
@@ -90,6 +94,8 @@ body {
   background-position: center;
   transform: rotateY(180deg);
 }
+
+/* Button Styling */
 
 button {
   color: #f7c600;

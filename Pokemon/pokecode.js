@@ -8,6 +8,8 @@
 
 import { removeChildren } from "../utils/index.js";
 
+//Define variables
+
 const pokeTeam1 = document.querySelector(".pokeTeam1");
 const pokeTeam2 = document.querySelector(".pokeTeam2");
 const teamButton = document.querySelector(".createTeam");
@@ -27,6 +29,8 @@ let Total1DEF;
 let Total2ATK;
 let Total2DEF;
 
+//RNG
+
 function getRandomInt(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
@@ -36,6 +40,8 @@ function getRandomInt(min, max) {
 battleButton.addEventListener("click", () => {
   doBattle(Total1ATK, Total1DEF, Total2ATK, Total2DEF);
 });
+
+//TeamButton Logic
 
 teamButton.addEventListener("click", () => {
   teamButton.classList.toggle((teamButton.disabled = true));
@@ -61,6 +67,8 @@ teamButton2.addEventListener("click", () => {
   }
 });
 
+//This is not used
+
 class Pokemon {
   constructor(name, height, weight, abilities, moves) {
     this.name = name;
@@ -81,6 +89,8 @@ async function getAPIData(url) {
     alert("No result found.");
   }
 }
+
+//Populate the card
 
 function populatePokeCard(singlePokemon, sceneContainer, totalContainer) {
   let pokeScene = document.createElement("div");
@@ -171,6 +181,8 @@ function populateCardBack(pokemon) {
   return pokeBack;
 }
 
+//Logic for retrieving images
+
 function getImageFileName(pokemon) {
   let pokeId;
   if (pokemon.id < 10) pokeId = `00${pokemon.id}`;
@@ -188,6 +200,8 @@ const reducer = (accumulator, currentValue) => accumulator + currentValue;
 function arrTotal(array) {
   if (array.length > 5) return array.reduce(reducer);
 }
+
+//Fight logic
 
 function doBattle(team1TotalATK, team1TotalDEF, team2TotalATK, team2TotalDEF) {
   let result1 = team1TotalDEF - team2TotalATK;
