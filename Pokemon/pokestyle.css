@@ -26,6 +26,7 @@
 body {
   background-image: url("/Pokemon/images/background.png");
   background-position: center;
+  background-size: cover;
 }
 
 
