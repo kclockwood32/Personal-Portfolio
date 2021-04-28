@@ -209,3 +209,10 @@ h1 {
     margin-bottom: 2em;
 }
 
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+    color: #f7c600;
+  }

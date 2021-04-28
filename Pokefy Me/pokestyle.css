@@ -1,110 +1,146 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .pokeGrid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 80%;
+  margin: auto;
 }
 
 .scene {
-    width: 220px;
-    height: 320px;
-    margin: 8px;
-    perspective: 600px;
+  width: 220px;
+  height: 320px;
+  margin: 8px;
+  perspective: 600px;
 }
 
 .card {
-    width: 100%;
-    height: 100%;
-    transition: transform 1s;
-    transform-style: preserve-3d;
-    cursor: pointer;
-    position: relative;
-
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  position: relative;
 }
 
 .card.is-flipped {
-    transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
 .card__face {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    font-weight: bold;
-    backface-visibility: hidden;
-    border-radius: 14px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-weight: bold;
+  backface-visibility: hidden;
+  border-radius: 14px;
 }
 
 .card__face--front {
-    background-image: linear-gradient(to bottom, rgba(236, 236, 236, 0.021), rgba(0, 0, 0, 0.507)),
-    url('/pokemon/images/grass.jpg');
-    background-position: center;
-    border: solid 10px #f7c600;
-    color: #f7c600;
-    font-family: 'Carter One', cursive;
-    letter-spacing: 1px;
-    text-shadow: 1px 1px 1px black;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(236, 236, 236, 0.021),
+      rgba(0, 0, 0, 0.507)
+    ),
+    url("/pokemon/images/grass.jpg");
+  background-position: center;
+  border: solid 10px #f7c600;
+  color: #f7c600;
+  font-family: "Carter One", cursive;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 1px black;
 }
 
 .card__face--front > h2 {
-    font-size: 1.9em;
+  font-size: 1.9em;
 }
 
 .card__face--front > p {
-    font-size: 1em;
+  font-size: 1em;
 }
 
 .button-layout {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    margin-bottom: 2em;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  margin-bottom: 2em;
+}
 
 .card__face--front > img {
-    width: 110px;
-    padding-top: .5rem;
+  width: 110px;
+  padding-top: 0.5rem;
 }
 
 .card__face--back {
-    background-image: url('/Pokefy Me/images/cardback.jpg');
-    background-position: center;
-    transform: rotateY(180deg);
+  background-image: url("/Pokefy Me/images/cardback.jpg");
+  background-position: center;
+  transform: rotateY(180deg);
 }
 
 button {
-    color: #f7c600;
-    background-color: #0a3470;
-    font-family: "Carter One", cursive;
-    text-shadow: 1px 1px 1px black;
-    padding: 1em;
-    border: 1px solid black;
-    border-radius: 20px;
-    font-size: 1.8em;
-    margin-left: 2rem;
-  }
-  
-  button:hover {
-    cursor: pointer;
-    background-color: #0a4faf;
-    color: #ffdc52;
-  }
+  color: #f7c600;
+  background-color: #0a3470;
+  font-family: "Carter One", cursive;
+  text-shadow: 1px 1px 1px black;
+  padding: 1em;
+  border: 1px solid black;
+  border-radius: 20px;
+  font-size: 1.8em;
+  margin-left: 2rem;
+}
 
-  h1 {
+button:hover {
+  cursor: pointer;
+  background-color: #0a4faf;
+  color: #ffdc52;
+}
+
+h1 {
+  color: #f7c600;
+  text-shadow: 2px 2px 1px black;
+  font-size: 6em;
+  font-family: "Carter One", cursive;
+  text-align: center;
+}
+
+body {
+  background-image: url("/Pokefy Me/images/bg.png");
+  background-size: cover;
+}
+
+.centered {
+  color: #f7c600;
+  text-shadow: 1px 1px 1px black;
+  font-size: 2em;
+  font-family: "Carter One", cursive;
+  text-align: center;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+.home {
+  color: #f7c600;
+  background-color: #0a3470;
+  font-family: "Carter One", cursive;
+  text-shadow: 1px 1px 1px black;
+  padding: 1em;
+  border: 1px solid black;
+  border-radius: 20px;
+  font-size: 1.2em;
+  margin-left: 2rem;
+  margin-top: .5em;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
     color: #f7c600;
-    text-shadow: 2px 2px 1px black;
-    font-size: 6em;
-    font-family: "Carter One", cursive;
-    text-align: center;
-  }
-  
-  body {
-    background-image: url('/Pokefy Me/images/bg.png');
-    background-size: auto;
   }
