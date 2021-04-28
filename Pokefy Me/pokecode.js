@@ -136,7 +136,7 @@ function populateCardFrontAlt(pokemon) {
   let personalityTitle = document.createElement('p')
   personalityTitle.textContent = `Personality:`
   let personalityType = document.createElement('p')
-  personalityType.textContent = pokemon.personality[getRandomInt(1, 19)]
+  personalityType.textContent = pokemon.personality[getRandomInt(0, 18)]
   pokeFront.appendChild(frontImage)
   pokeFront.appendChild(frontLabel)
   pokeFront.appendChild(frontHeight)
